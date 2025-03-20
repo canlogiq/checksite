@@ -1,0 +1,363 @@
+@import "tailwindcss";
+@import "./globals.fonts.css";
+
+/* Root ----------------------------- */
+
+body {
+  font-size: 0.85rem;
+  color: var(--color-foreground);
+}
+
+/* Tokens ----------------------------- */
+
+@theme inline {
+  --color-foreground: light-dark(
+    var(--color-gray-800),
+    var(--color-neutral-300)
+  );
+  --color-foreground-muted: light-dark(
+    var(--color-slate-500),
+    var(--color-neutral-400)
+  );
+  --color-foreground-muted-2: light-dark(
+    var(--color-gray-500),
+    var(--color-neutral-500)
+  );
+  --color-foreground-muted-3: light-dark(
+    --alpha(var(--color-slate-400) / 0.8),
+    var(--color-neutral-600)
+  );
+  --color-placeholder: light-dark(
+    --alpha(var(--color-gray-300) / 1),
+    var(--color-neutral-600)
+  );
+  --color-foreground-body: light-dark(
+    --alpha(var(--color-gray-500) / 0.9),
+    var(--color-neutral-400)
+  );
+
+  --color-background: light-dark(
+    var(--color-gray-50),
+    var(--color-neutral-900)
+  );
+  --color-background-muted: light-dark(#eaeff5, #121312);
+  --color-background-muted-2: light-dark(
+    var(--color-gray-100),
+    --alpha(var(--color-neutral-700) / 0.5)
+  );
+  --color-background-card: light-dark(#fff, #232424);
+
+  --color-border: light-dark(#e6eaf2, #2f3030);
+  --color-focus: light-dark(var(--color-slate-200), var(--color-neutral-800));
+  --color-border-focus: light-dark(
+    var(--color-slate-400),
+    var(--color-neutral-700)
+  );
+
+  /* Component Colors */
+  --color-background-tooltip: light-dark(
+    --alpha(var(--color-background-muted) / 0.5),
+    --alpha(var(--color-foreground-muted-2) / 0.1)
+  );
+
+  /* Accent Colors */
+  --color-warning: light-dark(
+    var(--color-yellow-500),
+    --alpha(var(--color-yellow-500) / 0.6)
+  );
+  --color-error: light-dark(
+    var(--color-red-400),
+    --alpha(var(--color-red-400) / 0.6)
+  );
+
+  --font-sans: var(--font-pjs);
+  --font-mono: var(--font-gm);
+  --font-twitter: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-discord: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+
+  --color-foreground-input: #1e2939;
+
+  --text-sm: 0.8rem;
+  --text-xs: 0.75rem;
+  --text-base: 0.85rem;
+}
+
+/* Utilities ----------------------------- */
+
+@utility max-w-screen-* {
+  max-width: --value(--breakpoint- *);
+}
+@utility font-use-* {
+  font-family: var(--value([ *]));
+}
+@utility break-word {
+  word-break: break-word;
+  @apply break-words;
+}
+@utility container-* {
+  max-width: --value(--breakpoint- *);
+  max-width: calc(--value(integer) * 0.25rem);
+  @apply mx-auto;
+}
+@utility clickable {
+  @apply cursor-pointer active:translate-y-0.5;
+}
+@utility w-px-* {
+  width: calc(--value(integer) / 16 * 1rem);
+}
+@utility h-px-* {
+  height: calc(--value(integer) / 16 * 1rem);
+}
+@utility text-px-* {
+  font-size: calc(--value(integer) / 16 * 1rem);
+}
+@utility mt-px-* {
+  margin-top: calc(--value(number) / 16 * 1rem);
+  margin-top: calc(--value([number]) / 16 * 1rem);
+}
+@utility mb-px-* {
+  margin-bottom: calc(--value(number) / 16 * 1rem);
+  margin-bottom: calc(--value([number]) / 16 * 1rem);
+}
+@utility my-px-* {
+  margin-block: calc(--value(number) / 16 * 1rem);
+  margin-block: calc(--value([number]) / 16 * 1rem);
+}
+@utility -my-px-* {
+  margin-block: calc(--value(integer) / 16 * -1rem);
+}
+@utility mr-px-* {
+  margin-right: calc(--value(integer) / 16 * 1rem);
+}
+@utility pt-px-* {
+  padding-top: calc(--value(integer) / 16 * 1rem);
+}
+@utility px-px-* {
+  padding-inline: calc(--value(integer) / 16 * 1rem);
+}
+@utility pb-px-* {
+  padding-bottom: calc(--value(integer) / 16 * 1rem);
+}
+@utility py-px-* {
+  padding-block: calc(--value(integer) / 16 * 1rem);
+}
+@utility size-px-* {
+  width: calc(--value(integer) / 16 * 1rem);
+  height: calc(--value(integer) / 16 * 1rem);
+}
+@utility bottom-px-* {
+  bottom: calc(--value(integer) / 16 * 1rem);
+}
+@utility -bottom-px-* {
+  bottom: calc(--value(integer) / 16 * -1rem);
+}
+@utility right-px-* {
+  right: calc(--value(integer) / 16 * 1rem);
+}
+@utility rounded-px-* {
+  border-radius: calc(--value(integer) / 16 * 1rem);
+}
+
+/* Selectors ----------------------------- */
+
+@custom-variant div (&>div);
+@custom-variant second (&:nth-child(2));
+@custom-variant hr (&>hr);
+@custom-variant a (&>a);
+@custom-variant svg (& svg);
+
+/* Default Elements ----------------------------- */
+
+@layer base {
+  a {
+    @apply clickable;
+  }
+  button {
+    @apply text-sm rounded-xl font-semibold
+    clickable transition-all
+    active:translate-y-0.5;
+    &.normal {
+      @apply px-5 py-2.5 text-xs;
+    }
+    &.primary {
+      @apply bg-foreground text-background;
+    }
+  }
+}
+
+/* Components ----------------------------- */
+
+@utility link-underline {
+  color: light-dark(
+    var(--color-blue-600),
+    --alpha(var(--color-blue-400) / 0.8)
+  );
+  @apply hover:underline;
+}
+
+@utility image-frame {
+  @apply p-1 border border-border rounded-md overflow-hidden;
+}
+
+/* Tabs */
+
+@utility tab {
+  @apply flex w-full sm:w-auto 
+  flex-wrap p-1.5 rounded-xl text-sm select-none isolate
+  bg-background-muted;
+  /* background: light-dark(var(--color-background-muted), var(--color-background-muted)); */
+}
+
+@custom-variant tab-item (& .tab-item);
+@utility tab-item {
+  @apply px-5 p-2
+  text-foreground-muted 
+  font-medium
+  text-nowrap 
+  cursor-pointer group-data-active:cursor-auto
+
+  /* outline outline-red-500 */
+
+  hover:text-foreground;
+
+  &[data-active] {
+    @apply text-foreground;
+  }
+}
+
+@custom-variant tab-background (&>.tab-background);
+@utility tab-background {
+  @apply absolute top-0 left-0 w-full h-full
+  pointer-events-none -z-10 
+  rounded-lg shadow-xs
+  bg-background-card;
+
+  /* background: light-dark(var(--color-background-card), var(--color-background-card)) */
+}
+
+/* Card */
+
+@utility card {
+  --padding: --spacing(5);
+  @apply p-[var(--padding)]
+    border rounded-md
+    border-border
+    bg-background-card;
+  &:has(.card-content) {
+    @apply py-0;
+  }
+}
+
+@utility card-content {
+  @apply py-[var(--padding)] 
+    -mx-[var(--padding)] 
+    px-[var(--padding)];
+
+  & > hr {
+    @apply -mx-[var(--padding)] my-[var(--padding)] border-border;
+  }
+}
+
+@utility card-tooltip {
+  background-color: light-dark(
+    --alpha(var(--color-background-muted) / 0.5),
+    --alpha(var(--color-background) / 0.5)
+  );
+}
+
+/* Grid */
+
+@utility meta-info-field-key {
+  @apply font-medium text-foreground;
+}
+
+@utility meta-info-grid {
+  @apply flex flex-col leading-relaxed font-normal break-word text-foreground-body;
+
+  /* Meta Row */
+  > div {
+    @apply py-1 -mx-[var(--padding)] px-[var(--padding)] grid grid-cols-[10rem_1fr];
+  }
+  .meta-mute {
+    @apply text-foreground-muted-3;
+  }
+}
+
+/* Header */
+
+@custom-variant closed (&[data-closed]);
+@custom-variant g-closed (&:is(:where(.group)[data-closed] *));
+
+@utility header-fill {
+  /* background: light-dark(
+    linear-gradient(90deg, #f0f, #0ff),
+    linear-gradient(90deg, #0f0, #f00),
+  ); */
+  background: linear-gradient(
+    to bottom,
+    light-dark(var(--color-slate-500), var(--color-neutral-100)),
+    light-dark(var(--color-slate-800), var(--color-zinc-400))
+  );
+  @apply bg-clip-text text-transparent;
+}
+
+@utility input-box-shadow {
+  @apply shadow-lg
+  shadow-[light-dark(--alpha(var(--color-slate-200)/0.2),--alpha(var(--color-neutral-950)/0.3))]
+  hover:shadow-[light-dark(--alpha(var(--color-slate-200)/0.8),--alpha(var(--color-neutral-950)/0.8))]
+  outline-0 hover:outline-4 outline-transparent hover:outline-focus/50
+}
+
+/* Animations ----------------------------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility fadeIn-* {
+  animation: fadeIn 0.3s ease-out backwards;
+  animation-delay: calc(--value(integer) * 1ms);
+}
+
+@keyframes fadeBlurIn {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility fadeBlurIn-* {
+  animation: fadeBlurIn 0.2s ease-out both;
+  animation-delay: calc(--value(integer) * 1ms);
+}
+
+
+@keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@utility fadeInFromLeft-* {
+  animation: fadeInFromLeft 0.3s ease-out backwards;
+  animation-delay: calc(--value(integer) * 1ms);
+}

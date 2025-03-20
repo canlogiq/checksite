@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": [
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "Node18",
+    "moduleResolution": "node16",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "incremental": true,
+    "paths": {
+      "@/*": [
+        "."
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "../node_modules"
+  ]
+}

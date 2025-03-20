@@ -1,0 +1,96 @@
+
+
+/* Fonts ----------------------------- */
+
+/* Twitter Fonts */
+
+@font-face {
+  font-family: 'TwitterChirp';
+  font-weight: 400;
+  src: url('https://abs.twimg.com/responsive-web/client-web/Chirp-Regular.80fda27a.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'TwitterChirpBold';
+  font-weight: 600;
+  src: url('https://abs.twimg.com/responsive-web/client-web/Chirp-Bold.ebb56aba.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'TwitterChirpHeavy';
+  font-weight: 700;
+  src: url('https://abs.twimg.com/responsive-web/client-web/Chirp-Heavy.f44ae4ea.woff2') format('woff2');
+}
+
+/* Discord Fonts */
+
+@font-face {
+    font-family: gg sans;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/api/proxy-font?url=https://discord.com/assets/66d715454104d24e.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: italic;
+    font-weight: 400;
+    src: url(/api/proxy-font?url=https://discord.com/assets/dd24010f3cf7def7.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: normal;
+    font-weight: 500;
+    src: url(/api/proxy-font?url=https://discord.com/assets/b272b33815319bae.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: italic;
+    font-weight: 500;
+    src: url(/api/proxy-font?url=https://discord.com/assets/6a1346ad3821ff3c.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: normal;
+    font-weight: 600;
+    src: url(/api/proxy-font?url=https://discord.com/assets/2df2c3ff74408972.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: italic;
+    font-weight: 600;
+    src: url(/api/proxy-font?url=https://discord.com/assets/d5d789aeb6282532.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/api/proxy-font?url=https://discord.com/assets/189422196a4f8b53.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: italic;
+    font-weight: 700;
+    src: url(/api/proxy-font?url=https://discord.com/assets/ce3b8055f5114434.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: normal;
+    font-weight: 800;
+    src: url(/api/proxy-font?url=https://discord.com/assets/b2fdbe507d6ce9ef.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg sans;
+    font-style: italic;
+    font-weight: 800;
+    src: url(/api/proxy-font?url=https://discord.com/assets/03dcf979852e8b8e.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg mono;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/api/proxy-font?url=https://discord.com/assets/249d0a057895c668.woff2) format("woff2")
+}
+@font-face {
+    font-family: gg mono;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/api/proxy-font?url=https://discord.com/assets/45efa6936fdfb918.woff2) format("woff2")
+}
